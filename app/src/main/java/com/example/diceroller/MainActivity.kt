@@ -16,6 +16,9 @@ class MainActivity : AppCompatActivity() {
 
         val rollButton: Button = findViewById(R.id.button)
         rollButton.setOnClickListener { rollDice() }
+
+        val secondRollButton: Button = findViewById(R.id.button2)
+        secondRollButton.setOnClickListener { rollSecondDice() }
     }
 
     /**
@@ -28,6 +31,16 @@ class MainActivity : AppCompatActivity() {
 
         // Update the screen with the dice roll
         val resultTextView: TextView = findViewById(R.id.textView)
+        resultTextView.text = diceRoll.toString()
+    }
+
+    private fun rollSecondDice() {
+        // Create new Dice object with 6 sides and roll it
+        val dice = Dice(6)
+        val diceRoll = dice.roll()
+
+        // Update the screen with the dice roll
+        val resultTextView: TextView = findViewById(R.id.textView2)
         resultTextView.text = diceRoll.toString()
     }
 }
